@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/xinran/workspace/JM/study/FastHttp/app/build/intermediates/exploded-aar/FastHttp/fastokhttp/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="cfbd4a94301a98099d146a7ff829ce1c6b8525be">
+        <dex dex="/Users/xinran/workspace/JM/study/FastHttp/app/build/intermediates/pre-dexed/debug/classes-a1a0ec29444d012eb08bb9dca719bce499cab15c.jar" />
+    </item>
+
+</items>
