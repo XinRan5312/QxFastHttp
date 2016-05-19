@@ -40,7 +40,7 @@ public class NetWorkFactory implements IRequestMethods {
                 .addConverterFactory(converter == null ? GsonConverterFactory.create() : converter)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build()
-                .create(NetWorks.class);
+                .create(NetWorks.class);//使用了动态代理的知识
     }
 
     @Override
