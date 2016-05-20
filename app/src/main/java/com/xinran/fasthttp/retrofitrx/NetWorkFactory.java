@@ -1,5 +1,8 @@
 package com.xinran.fasthttp.retrofitrx;
 
+import com.xinran.fasthttp.db.Repo;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -46,6 +49,11 @@ public class NetWorkFactory implements IRequestMethods {
     @Override
     public Call<List<String>> getNamesResultCall(@Path("user") String user, @Path("id") String id) {
         return mNetWork.getNamesResultCall(user, id);
+    }
+
+    @Override
+    public Observable<ArrayList<Repo>> getReposResultObserver(@Path("user") String user, @Path("id") String id) {
+        return null;
     }
 
     @Override

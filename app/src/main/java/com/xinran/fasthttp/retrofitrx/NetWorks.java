@@ -1,5 +1,8 @@
 package com.xinran.fasthttp.retrofitrx;
 
+import com.xinran.fasthttp.db.Repo;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +34,7 @@ public interface NetWorks {
      * 总之下面，带返回值形式为同步，带Callback参数形式为异步请求
      */
     String BASE_URL = "";
+
     @Headers({
             "Accept: application/vnd.github.v3.full+json",
             "User-Agent: Retrofit-Sample-App"
@@ -40,6 +44,9 @@ public interface NetWorks {
 
     @GET("/users/{user}/{id}/wr")
     Observable<List<String>> getNamesResultObserver(@Path("user") String user, @Path("id") String id);
+
+    @GET("/repos/{user}/{id}/wr")
+    Observable<ArrayList<Repo>> getReposResultObserver(@Path("user") String user, @Path("id") String id);
 
     @GET("/users/{user}/{id}/wr")
     void getNamesResultCallBack(@Path("user") String user, @Path("id") String id, Callback<List<String>> callback);
@@ -62,7 +69,7 @@ public interface NetWorks {
     Observable<List<String>> postNamesResultObserver(@Body User user);
 
     //Header也可以这样添加
-    Observable<List<String>> postNamesResultOtherHeader(@Header("Cache-Control") String cache,@Body User user);
+    Observable<List<String>> postNamesResultOtherHeader(@Header("Cache-Control") String cache, @Body User user);
 
     @POST("/users/wr")
     Call<List<String>> postNamesResultCall(@Body User user);
@@ -78,7 +85,6 @@ public interface NetWorks {
      * FORM ENCODED AND　MULTIPART表单域与文件上传
      *
      * @FormUrlEncoded修饰表单域，每个表单域子件key-value采用@Field修饰
-     *
      */
     @FormUrlEncoded
     @POST("/user/edit")
@@ -86,18 +92,19 @@ public interface NetWorks {
 
 
     /**
-     *  @Multipart修饰用于文件上传，每个Part元素用@Part修饰:
-     *  @Part(“fileDes”) String des 可以加一些描述信息(可以不加)
-     @Part(“file\”; filename=\”1.txt”) 格式不变，只需将1.text 对应的替换为你想在服务器生成的文件名称
-     如果想传多个文件，多次请求，当然，也可以像表单一样(还没弄好)
-     当然，上面这种办法的灵活性差了点，我们可以选择下面这种写法
+     * @Multipart修饰用于文件上传，每个Part元素用@Part修饰:
+     * @Part(“fileDes”) String des 可以加一些描述信息(可以不加)
+     * @Part(“file\”; filename=\”1.txt”) 格式不变，只需将1.text 对应的替换为你想在服务器生成的文件名称
+     * 如果想传多个文件，多次请求，当然，也可以像表单一样(还没弄好)
+     * 当然，上面这种办法的灵活性差了点，我们可以选择下面这种写法
      */
     @Multipart
     @POST("/fileabout.php")
     Call<String> uploadFile(@Part("fileName") String des,
-                        @Part("file\"; filename=\"1.txt") RequestBody file);
+                            @Part("file\"; filename=\"1.txt") RequestBody file);
+
     @Multipart
     @POST("/fileabout.php")
-    Call<String> uploadFile(@PartMap Map<String,RequestBody> params);
+    Call<String> uploadFile(@PartMap Map<String, RequestBody> params);
 
 }

@@ -1,5 +1,8 @@
 package com.xinran.fasthttp.retrofitrx;
 
+import com.xinran.fasthttp.db.Repo;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +35,7 @@ public interface IRequestMethods {
 
     Call<List<String>> getNamesResultCall(@Path("user") String user, @Path("id") String id);
 
+    Observable<ArrayList<Repo>> getReposResultObserver(@Path("user") String user, @Path("id") String id);
 
     Observable<List<String>> getNamesResultObserver( String user, String id);
 
