@@ -31,8 +31,6 @@ import rx.functions.Func2;
 import rx.schedulers.Schedulers;
 import rx.subscriptions.CompositeSubscription;
 
-import static java.lang.String.valueOf;
-
 public class MainActivity extends AppCompatActivity {
     TextView tv;
     NetWorkFactory mNetWork;
@@ -151,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         Subscription subscription = Observable
                 .zip(mNetWork.getAges("", ""), mNetWork.getNamesResultObserver("", ""),//zip负责并发的执行几个耗时的业务，做完后几个业务得到的数据在作为另外一个方法的参数，做其它逻辑
                         new Func2<List<Integer>, List<String>, Observable<String>>() {//Func2<List<Integer>, List<String>, Observable<String>>()前两个参数是并发返回的
-                        // 两个Observable中的泛型类型，第三个参数是Observable.zip()方法返回Observable的泛型类型，本例中Observable.zip()返回的结果是Observable<Observable<String>>>
+                            // 两个Observable中的泛型类型，第三个参数是Observable.zip()方法返回Observable的泛型类型，本例中Observable.zip()返回的结果是Observable<Observable<String>>>
                             @Override
                             public Observable<String> call(List<Integer> integers, List<String> strings) {
                                 return getObsevableString(integers, strings);
