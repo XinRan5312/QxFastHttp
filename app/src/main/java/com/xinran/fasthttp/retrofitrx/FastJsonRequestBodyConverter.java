@@ -1,12 +1,13 @@
 package com.xinran.fasthttp.retrofitrx;
 
 import com.alibaba.fastjson.JSON;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.RequestBody;
 
-import retrofit.Converter;
 
 import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Converter;
 
 
 /**

@@ -6,14 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.Converter;
-import retrofit.GsonConverterFactory;
-import retrofit.Retrofit;
-import retrofit.RxJavaCallAdapterFactory;
-import retrofit.http.Body;
-import retrofit.http.Path;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Converter;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
+import retrofit2.http.Path;
 import rx.Observable;
 
 /**
@@ -48,7 +48,7 @@ public class NetWorkFactory implements IRequestMethods {
 
     @Override
     public Call<List<String>> getNamesResultCall(@Path("user") String user, @Path("id") String id) {
-        return mNetWork.getNamesResultCall(user, id);
+        return null;
     }
 
     @Override
@@ -65,6 +65,7 @@ public class NetWorkFactory implements IRequestMethods {
     public void getNamesResultCallBack(String user, String id, Callback<List<String>> callback) {
 
     }
+
 
     @Override
     public Observable<List<Integer>> getAges(String user, String key) {
@@ -95,6 +96,7 @@ public class NetWorkFactory implements IRequestMethods {
     public void postNamesResultCallBack(User userBody, Callback<List<String>> callback) {
 
     }
+
 
     @Override
     public User updateUser(String nameField, String ageField) {

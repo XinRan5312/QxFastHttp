@@ -18,6 +18,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 import rx.Observable;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mNetWork.getReposResultObserver("", "")//从网络获取数据
+                        .delay(100, TimeUnit.MICROSECONDS)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Action1<ArrayList<Repo>>() {

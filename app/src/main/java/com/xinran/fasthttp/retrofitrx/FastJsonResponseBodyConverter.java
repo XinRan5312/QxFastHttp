@@ -1,15 +1,17 @@
 package com.xinran.fasthttp.retrofitrx;
 
 import com.alibaba.fastjson.JSON;
-import com.squareup.okhttp.ResponseBody;
+
 
 import java.io.IOException;
 import java.lang.reflect.Type;
 
 
+import okhttp3.ResponseBody;
 import okio.BufferedSource;
 import okio.Okio;
-import retrofit.Converter;
+import retrofit2.Converter;
+
 
 /**
  * Created by qixinh on 16/4/18.
